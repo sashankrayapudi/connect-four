@@ -2,8 +2,12 @@
   box-sizing: border-box;
 }
 
+header {
+    height: 30vh;
+}
+
 body {
-  height: 100vh;
+  height: 80vh;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -14,14 +18,14 @@ body {
 
 #markers {
   display: grid;
-  grid-template-columns: repeat(7, 16vmin);
-  gap: 2vmin;
+  grid-template-columns: repeat(7, 12vmin);
+  gap: 1vmin;
   margin-top: 2vmin;
 }
 
 #markers > div {
-  height: 16vmin;
-  border-width: 8vmin;
+  height: 12vmin;
+  border-width: 6vmin;
   border-style: solid;
   border-color: lightgray transparent transparent;
   transform: scale(0.7);
@@ -35,8 +39,8 @@ body {
 
 #board {
   display: grid;
-  grid-template-columns: repeat(7, 16vmin);
-  grid-template-rows: repeat(6, 16vmin);
+  grid-template-columns: repeat(7, 11vmin);
+  grid-template-rows: repeat(6, 11vmin);
   gap: 2vmin;
   margin-top: -3vmin;
 }
