@@ -19,6 +19,7 @@ const markerEls = [...document.querySelectorAll('#markers > div')];
 
 /*----- event listeners -----*/
 document.getElementById('markers').addEventListener('click', handleDrop);
+const msgEl = document.querySelector('h2');
 
 
 /*----- functions -----*/
@@ -51,6 +52,7 @@ function render () {
         });
     });
     renderMarkers();
+    renderMessage();
 };
 
 
@@ -58,6 +60,16 @@ function renderMarkers() {
     markerEls.forEach(function(markerEl, colIdx) {
         markerEl.style.visibility = board[colIdx].includes(0) ? 'visible' : 'hidden';
     })
+};
+
+function renderMessage() {
+    if (gameStatus === null) {
+        msgEl.innerHTML = `Player <span style="color: ${COLORS[turn]}">${COLORS[turn].toUpperCase()}</span>'s Turn`;
+    } else if (gameStatus === 'T') {
+        msgEl.textContent = 'Tie Game'
+    } else {
+        msgEl.innerHTML = `Player <span style="color: ${COLORS[gameStatus]}">${COLORS[gameStatus].toUpperCase()}</span>'s Wins!`;
+    }
 };
 
 // update all impacted state, then call render
