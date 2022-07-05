@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#markers {
+  display: grid;
+  grid-template-columns: repeat(7, 16vmin);
+  gap: 2vmin;
+  margin-top: 2vmin;
+}
+
+#markers > div {
+  height: 16vmin;
+  border-width: 8vmin;
+  border-style: solid;
+  border-color: lightgray transparent transparent;
+  transform: scale(0.7);
+}
+
+#markers > div:hover {
+  transform: scale(0.9);
+  transition: transform 150ms ease-in;
+  border-top-color: darkgray;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(7, 16vmin);
+  grid-template-rows: repeat(6, 16vmin);
+  gap: 2vmin;
+  margin-top: -3vmin;
+}
+
+#board > div {
+  border-radius: 50%;
+  border: 0.1vmin solid grey;
+}
