@@ -116,7 +116,11 @@ function getGameStatus() {
     }
 
     // check diagonal \ (/ on 2D array board variable)
-    
+    for (let rowIdx = NUM_ROWS - 1; rowIdx > NUM_ROWS - 4; rowIdx--) {
+        for (let colIdx = 0; colIdx < NUM_COLS - 3; colIdx++) {
+            if (board[colIdx][rowIdx] === turn && board[colIdx+1][rowIdx-1] === turn && board[colIdx+2][rowIdx-2] === turn && board[colIdx + 3][rowIdx - 3] === turn) return turn;
+        }
+    }
 
     // check tie
     for (let colIdx = 0; colIdx < NUM_COLS; colIdx++) {
