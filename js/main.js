@@ -95,25 +95,33 @@ function handleDrop(evt) {
 function getGameStatus() {
 
     // check horizontal (vertical on 2D array board variable)
-    for (let valIdx = 0; valIdx < NUM_ROWS; valIdx++) {
+    for (let rowIdx = 0; rowIdx < NUM_ROWS; rowIdx++) {
         for (let colIdx = 0; colIdx < NUM_COLS - 3; colIdx++) {
-            if (board[colIdx][valIdx] === turn && board[colIdx+1][valIdx] === turn && board[colIdx+2][valIdx] === turn && board[colIdx+3][valIdx] === turn) return turn;
+            if (board[colIdx][rowIdx] === turn && board[colIdx+1][rowIdx] === turn && board[colIdx+2][rowIdx] === turn && board[colIdx+3][rowIdx] === turn) return turn;
         }
     }
 
     // check vertical (horizontal on 2D array board variable)
     for (let colIdx = 0; colIdx < NUM_ROWS; colIdx++) {
-        for (let valIdx = 0; valIdx < NUM_COLS - 3; valIdx++) {
-            if (board[colIdx][valIdx] === turn && board[colIdx][valIdx+1] === turn && board[colIdx][valIdx+2] === turn && board[colIdx][valIdx+3] === turn) return turn;
+        for (let rowIdx = 0; rowIdx < NUM_COLS - 3; rowIdx++) {
+            if (board[colIdx][rowIdx] === turn && board[colIdx][rowIdx+1] === turn && board[colIdx][rowIdx+2] === turn && board[colIdx][rowIdx+3] === turn) return turn;
         }
     }
 
+    // check diagonal / (\ on 2D array board variable)
+    for (let rowIdx = 0; rowIdx < NUM_ROWS - 3; rowIdx++) {
+        for (let colIdx = 0; colIdx < NUM_COLS - 3; colIdx++) {
+            if (board[colIdx][rowIdx] === turn && board[colIdx+1][rowIdx+1] === turn && board[colIdx+2][rowIdx+2] === turn && board[colIdx+3][rowIdx+3] === turn) return turn;
+        }
+    }
+
+    // check diagonal \ (/ on 2D array board variable)
     
 
     // check tie
     for (let colIdx = 0; colIdx < NUM_COLS; colIdx++) {
-        for (let valIdx = 0; valIdx < NUM_ROWS; valIdx++) {
-            if (board[colIdx][valIdx] === 0) {
+        for (let rowIdx = 0; rowIdx < NUM_ROWS; rowIdx++) {
+            if (board[colIdx][rowIdx] === 0) {
                 return null;
             } else {
                 continue;
