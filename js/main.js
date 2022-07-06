@@ -5,8 +5,8 @@ const COLORS = {
     '-1': 'yellow'
 };
 
-const BOARD_HEIGHT = 6;
-const BOARD_WIDTH = 7;
+const BOARD_HEIGHT = 7;
+const BOARD_WIDTH = 6;
 
 /*----- app's state (variables) -----*/
 let board; // 2D array, nested arrays represent columns
@@ -16,18 +16,19 @@ let gameStatus; // null -> game in play; 1/-1 player win; 'T'
 
 /*----- cached element references -----*/
 const markerEls = [...document.querySelectorAll('#markers > div')];
+const msgEl = document.querySelector('h2');
+const replayBtn = document.querySelector('button');
 
 /*----- event listeners -----*/
 document.getElementById('markers').addEventListener('click', handleDrop);
-const msgEl = document.querySelector('h2');
-
+replayBtn.addEventListener('click', init);
 
 /*----- functions -----*/
 init();
 
 function init() {
     board = [
-        [1,0,0,0,0,0], //col 0
+        [0,0,0,0,0,0], //col 0
         [0,0,0,0,0,0],
         [0,0,0,0,0,0],
         [0,0,0,0,0,0],
@@ -53,6 +54,7 @@ function render () {
     });
     renderMarkers();
     renderMessage();
+    replayBtn.style.visibility = gameStatus ? 'visible' : 'hidden';
 };
 
 
@@ -75,31 +77,37 @@ function renderMessage() {
 // update all impacted state, then call render
 function handleDrop(evt) {
     const colIdx = markerEls.indexOf(evt.target);
-    if (colIdx === -1) return;
+
+    //guards
+    if (
+        colIdx === -1 ||
+        gameStatus
+    ) return;
     const colArr = board[colIdx];
     //if (!colArr.includes(0)) return;
     const rowIdx = colArr.indexOf(0);
     colArr[rowIdx] = turn;
     gameStatus = getGameStatus();
     turn *= -1;
-    render()
+    render();
 };
 
 function getGameStatus() {
 
-    // check horizontal
-    for (let c = 0; c < BOARD_HEIGHT; c++) {
-        for (let r = 0; r < BOARD_WIDTH - 3; r++) {
+    // check horizontal (vertical on 2D array board variable)
+    for (let c = 0; c < BOARD_WIDTH; c++) {
+        for (let r = 0; r < BOARD_HEIGHT - 3; r++) {
             if (board[r][c] === turn && board[r+1][c] === turn && board[r+2][c] === turn && board[r+3][c] === turn) return turn;
         }
     }
 
-    // check vertical
-    for (let r = 0; r < BOARD_HEIGHT; r++) {
-        for (let c = 0; c < BOARD_WIDTH - 3; c++) {
+    // check vertical (horizontal on 2D array board variable)
+    for (let r = 0; r < BOARD_WIDTH; r++) {
+        for (let c = 0; c < BOARD_HEIGHT - 3; c++) {
             if (board[r][c] === turn && board[r][c+1] === turn && board[r][c+2] === turn && board[r][c+3] === turn) return turn;
         }
     }
+
 
     return null;
 };
