@@ -5,8 +5,8 @@ const COLORS = {
     '-1': 'yellow'
 };
 
-const BOARD_HEIGHT = 7;
-const BOARD_WIDTH = 6;
+const NUM_COLS = 7;
+const NUM_ROWS = 6;
 
 /*----- app's state (variables) -----*/
 let board; // 2D array, nested arrays represent columns
@@ -95,19 +95,32 @@ function handleDrop(evt) {
 function getGameStatus() {
 
     // check horizontal (vertical on 2D array board variable)
-    for (let c = 0; c < BOARD_WIDTH; c++) {
-        for (let r = 0; r < BOARD_HEIGHT - 3; r++) {
-            if (board[r][c] === turn && board[r+1][c] === turn && board[r+2][c] === turn && board[r+3][c] === turn) return turn;
+    for (let valIdx = 0; valIdx < NUM_ROWS; valIdx++) {
+        for (let colIdx = 0; colIdx < NUM_COLS - 3; colIdx++) {
+            if (board[colIdx][valIdx] === turn && board[colIdx+1][valIdx] === turn && board[colIdx+2][valIdx] === turn && board[colIdx+3][valIdx] === turn) return turn;
         }
     }
 
     // check vertical (horizontal on 2D array board variable)
-    for (let r = 0; r < BOARD_WIDTH; r++) {
-        for (let c = 0; c < BOARD_HEIGHT - 3; c++) {
-            if (board[r][c] === turn && board[r][c+1] === turn && board[r][c+2] === turn && board[r][c+3] === turn) return turn;
+    for (let colIdx = 0; colIdx < NUM_ROWS; colIdx++) {
+        for (let valIdx = 0; valIdx < NUM_COLS - 3; valIdx++) {
+            if (board[colIdx][valIdx] === turn && board[colIdx][valIdx+1] === turn && board[colIdx][valIdx+2] === turn && board[colIdx][valIdx+3] === turn) return turn;
         }
     }
 
+    
 
-    return null;
+    // check tie
+    for (let colIdx = 0; colIdx < NUM_COLS; colIdx++) {
+        for (let valIdx = 0; valIdx < NUM_ROWS; valIdx++) {
+            if (board[colIdx][valIdx] === 0) {
+                return null;
+            } else {
+                continue;
+            }
+        }
+    }
+
+    return 'T';
 };
+
