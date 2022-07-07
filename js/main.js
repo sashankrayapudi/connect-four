@@ -106,8 +106,8 @@ function handleDrop(evt) {
 // update all impacted state, then call render
 // extract color value from input, update colors state variable. Colors will update automatically through render function.
 function changePlayerColor() {
-    let pOneColor = document.getElementById("pOneColor").value;
-    let pTwoColor = document.getElementById("pTwoColor").value;
+    let pOneColor = document.getElementById("p-one-color").value;
+    let pTwoColor = document.getElementById("p-two-color").value;
     colors['1'] = pOneColor;
     colors['-1'] = pTwoColor;
     render();

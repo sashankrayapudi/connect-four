@@ -12,6 +12,26 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+#color-picker {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#color-picker * {
+    margin: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#p-two-color {
+    margin-top: 10px;
+}
+
+#submit-color {
+    margin-top: 15px;
+}
+
 #markers {
   display: grid;
   grid-template-columns: repeat(7, 12vmin);
