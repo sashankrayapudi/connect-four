@@ -71,13 +71,18 @@ function renderMarkers() {
     markerEls.forEach(function(markerEl, colIdx) {
         markerEl.style.visibility = board[colIdx].includes(0) ? 'visible' : 'hidden';
     })
+    if (gameStatus) {
+        markerEls.forEach(function(markerEl) {
+            markerEl.style.visibility = 'hidden';
+        })
+    };
 };
 
 function renderMessage() {
     let turnName = (turn === 1) ? 'One' : 'Two';
     let gameName = (gameStatus === 1) ? 'One' : 'Two';
     if (gameStatus === null) {
-        msgEl.innerHTML = `Player <span style="color: ${colors[turn]}">${turnName}</span>'s Turn`;
+        msgEl.innerHTML = `Player <span style="color: ${colors[turn]}">${turnName}'s</span> Turn`;
     } else if (gameStatus === 'T') {
         msgEl.textContent = 'Tie Game'
     } else {

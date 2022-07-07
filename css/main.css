@@ -1,21 +1,32 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+    color: white;
+    background-color: black;
 }
 
 body {
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Open Sans', sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1  {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 30px;
 }
 
 #color-picker {
     position: absolute;
     top: 0;
     left: 0;
+    font-size: x-large;
 }
 
 #color-picker * {
@@ -30,38 +41,68 @@ body {
 
 #submit-color {
     margin-top: 15px;
+    font-size: large;
+    border-radius: 10px;
 }
 
 #markers {
-  display: grid;
-  grid-template-columns: repeat(7, 12vmin);
-  gap: 1vmin;
-  margin-top: 2vmin;
+    display: grid;
+    grid-template-columns: repeat(7, 12vmin);
+    gap: 1vmin;
+    margin-top: 2vmin;
 }
 
 #markers > div {
-  height: 12vmin;
-  border-width: 6vmin;
-  border-style: solid;
-  border-color: lightgray transparent transparent;
-  transform: scale(0.7);
+    height: 12vmin;
+    border-width: 6vmin;
+    border-style: solid;
+    border-color: lightgray transparent transparent;
+    transform: scale(0.5);
+    margin-bottom: 16px;
 }
 
 #markers > div:hover {
-  transform: scale(0.9);
-  transition: transform 150ms ease-in;
-  border-top-color: darkgray;
+    transform: scale(0.7);
+    transition: transform 150ms ease-in;
+    border-top-color: darkgray;
 }
 
 #board {
-  display: grid;
-  grid-template-columns: repeat(7, 11vmin);
-  grid-template-rows: repeat(6, 11vmin);
-  gap: 2vmin;
-  margin-top: -3vmin;
+    display: grid;
+    grid-template-columns: repeat(7, 11vmin);
+    grid-template-rows: repeat(6, 11vmin);
+    gap: 2vmin;
+    margin-top: -3vmin;
 }
 
 #board > div {
-  border-radius: 50%;
-  border: 0.1vmin solid grey;
+    border-radius: 50%;
+    border: 0.1vmin solid grey;
+}
+
+
+button {
+    font-size: x-large;
+    border-radius: 10px;
+}
+
+
+.rotate {
+    display: inline-block;
+    animation-name: rotating;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    color: red;
+}
+
+h1 span:last-child {
+    animation-delay: 0.5s;
+    color: yellow;
+}
+
+@keyframes rotating {
+    0%,10%,20%,30%,40%,50%,60%,70%,80%,90% {
+        transform: rotateY(180deg);
+    }
 }
