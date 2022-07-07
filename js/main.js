@@ -1,9 +1,9 @@
 /*----- constants -----*/
-const COLORS = {
-    '0': 'white',
-    '1':  'red',
-    '-1': 'yellow'
-};
+// const COLORS = {
+//     '0': 'white',
+//     '1':  'red',
+//     '-1': 'yellow'
+// };
 
 const NUM_COLS = 7;
 const NUM_ROWS = 6;
@@ -12,15 +12,18 @@ const NUM_ROWS = 6;
 let board; // 2D array, nested arrays represent columns
 let turn; // 1 or -1; 0 for no user
 let gameStatus; // null -> game in play; 1/-1 player win; 'T'
+let colors; // object with three properties, 1,-1 key value will change by user input
 
 
 /*----- cached element references -----*/
 const markerEls = [...document.querySelectorAll('#markers > div')];
 const msgEl = document.querySelector('h2');
 const replayBtn = document.querySelector('button');
+const submitBtn = document.getElementById('submit-color');
 
 /*----- event listeners -----*/
 document.getElementById('markers').addEventListener('click', handleDrop);
+submitBtn.addEventListener('click', changePlayerColor);
 replayBtn.addEventListener('click', init);
 
 /*----- functions -----*/
@@ -41,6 +44,12 @@ function init() {
 
     gameStatus = null;
 
+    colors = {
+        '0': 'white',
+        '1':  'red',
+        '-1': 'yellow'
+    };
+
     render();
 };
 
@@ -49,7 +58,7 @@ function render () {
     board.forEach(function(colArr, colIdx) {
         colArr.forEach(function(cellVal, rowIdx) {
             const cellEl = document.getElementById(`c${colIdx}r${rowIdx}`);
-            cellEl.style.backgroundColor = COLORS[cellVal];
+            cellEl.style.backgroundColor = colors[cellVal];
         });
     });
     renderMarkers();
@@ -65,12 +74,14 @@ function renderMarkers() {
 };
 
 function renderMessage() {
+    let turnName = (turn === 1) ? 'One' : 'Two';
+    let gameName = (gameStatus === 1) ? 'One' : 'Two';
     if (gameStatus === null) {
-        msgEl.innerHTML = `Player <span style="color: ${COLORS[turn]}">${COLORS[turn].toUpperCase()}</span>'s Turn`;
+        msgEl.innerHTML = `Player <span style="color: ${colors[turn]}">${turnName}</span>'s Turn`;
     } else if (gameStatus === 'T') {
         msgEl.textContent = 'Tie Game'
     } else {
-        msgEl.innerHTML = `Player <span style="color: ${COLORS[gameStatus]}">${COLORS[gameStatus].toUpperCase()}</span>'s Wins!`;
+        msgEl.innerHTML = `Player <span style="color: ${colors[gameStatus]}">${gameName}</span> Wins!`;
     }
 };
 
@@ -89,6 +100,16 @@ function handleDrop(evt) {
     colArr[rowIdx] = turn;
     gameStatus = getGameStatus();
     turn *= -1;
+    render();
+};
+
+// update all impacted state, then call render
+// extract color value from input, update colors state variable. Colors will update automatically through render function.
+function changePlayerColor() {
+    let pOneColor = document.getElementById("pOneColor").value;
+    let pTwoColor = document.getElementById("pTwoColor").value;
+    colors['1'] = pOneColor;
+    colors['-1'] = pTwoColor;
     render();
 };
 
