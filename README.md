@@ -1,5 +1,5 @@
 # Connect Four
-Forget red and yellow, play Connect 4 with your favorite colors!!! Simply use the color input palette and click 'Update Token Color' to see the change take effect.
+Forget red and yellow, play Connect 4 with your favorite colors!!! Simply use the color palette to choose colors and click 'Update Token Color' to see the change take effect.
 
 # Screenshot
 
