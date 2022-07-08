@@ -15,11 +15,12 @@ body {
 }
 
 h1  {
-    font-size: 40px;
+    font-size: 50px;
 }
 
 h2 {
     font-size: 30px;
+    margin-top: 1vmin;
 }
 
 #color-picker {
@@ -49,7 +50,7 @@ h2 {
     display: grid;
     grid-template-columns: repeat(7, 12vmin);
     gap: 1vmin;
-    margin-top: 2vmin;
+    margin-top: 1vmin;
 }
 
 #markers > div {
@@ -58,7 +59,7 @@ h2 {
     border-style: solid;
     border-color: lightgray transparent transparent;
     transform: scale(0.5);
-    margin-bottom: 16px;
+    margin-bottom: 1.5vmin;
 }
 
 #markers > div:hover {

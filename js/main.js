@@ -40,15 +40,16 @@ function init() {
         [0,0,0,0,0,0], //col 6
     ];
 
-    turn = 1;
-
-    gameStatus = null;
-
     colors = {
         '0': 'white',
         '1':  'red',
         '-1': 'yellow'
     };
+
+    turn = 1;
+
+    gameStatus = null;
+
 
     render();
 };
