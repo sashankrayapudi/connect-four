@@ -1,10 +1,4 @@
 /*----- constants -----*/
-// const COLORS = {
-//     '0': 'white',
-//     '1':  'red',
-//     '-1': 'yellow'
-// };
-
 const NUM_COLS = 7;
 const NUM_ROWS = 6;
 
@@ -49,7 +43,6 @@ function init() {
     turn = 1;
 
     gameStatus = null;
-
 
     render();
 };
@@ -101,7 +94,6 @@ function handleDrop(evt) {
         gameStatus
     ) return;
     const colArr = board[colIdx];
-    //if (!colArr.includes(0)) return;
     const rowIdx = colArr.indexOf(0);
     colArr[rowIdx] = turn;
     gameStatus = getGameStatus();
