@@ -14,7 +14,7 @@ Forget red and yellow, play Connect 4 with your favorite colors!!! Simply use th
 
 # Getting Started
 
-[Click to Play Connect Four!](your deployment url here)
+[Click to Play Connect Four!](https://sashankrayapudi.github.io/connect-four/)
 
 # Next Steps
 
