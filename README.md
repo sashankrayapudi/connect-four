@@ -1,6 +1,8 @@
 # Connect Four
 Forget red and yellow, play Connect 4 with your favorite colors!!! Simply use the color palette to choose colors and click 'Update Token Color' to see the change take effect.
 
+To win the game, posititon four of your tokens into a horizontal, vertical, or diagonal pattern.
+
 # Screenshot
 
 <img src="https://imgur.com/W8B1tTG.jpg">
