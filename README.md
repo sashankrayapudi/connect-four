@@ -3,7 +3,7 @@ A description of your game. Background info of the game is a nice touch.
 
 # Screenshot
 
-<img src="https://imgur.com/W8B1tTG">
+<img src="https://imgur.com/W8B1tTG.jpg">
 <img src="url to your image on imgur">
 
 # Technologies Used
