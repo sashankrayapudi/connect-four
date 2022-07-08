@@ -20,7 +20,8 @@ To win the game, posititon four of your tokens into a horizontal, vertical, or d
 
 # Next Steps
 
-- Future enhancement 1: Keep track of scores of consecutive games
-- Future enhancement 2: Add animation when token are dropped
-- Future enhancement 3: Optimize win logic
-- Future enhancement 4: Add sound effects
+
+- Future enhancement 1: Add animation when token are dropped
+- Future enhancement 2: Optimize win logic
+- Future enhancement 3: Add sound effects
+- Future enhancement 4: Keep track of scores of consecutive games
