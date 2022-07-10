@@ -15,7 +15,7 @@ body {
 }
 
 h1  {
-    font-size: 50px;
+    font-size: 45px;
 }
 
 h2 {
@@ -27,7 +27,8 @@ h2 {
     position: absolute;
     top: 0;
     left: 0;
-    font-size: x-large;
+    font-size: large;
+    height: 1vmin;
 }
 
 #color-picker * {
@@ -42,20 +43,20 @@ h2 {
 
 #submit-color {
     margin-top: 15px;
-    font-size: large;
+    font-size: small;
     border-radius: 10px;
 }
 
 #markers {
     display: grid;
-    grid-template-columns: repeat(7, 12vmin);
+    grid-template-columns: repeat(7, 10vmin);
     gap: 1vmin;
     margin-top: 1vmin;
 }
 
 #markers > div {
-    height: 12vmin;
-    border-width: 6vmin;
+    height: 10vmin;
+    border-width: 5vmin;
     border-style: solid;
     border-color: lightgray transparent transparent;
     transform: scale(0.5);
@@ -70,8 +71,8 @@ h2 {
 
 #board {
     display: grid;
-    grid-template-columns: repeat(7, 11vmin);
-    grid-template-rows: repeat(6, 11vmin);
+    grid-template-columns: repeat(7, 9vmin);
+    grid-template-rows: repeat(6, 9vmin);
     gap: 2vmin;
     margin-top: -3vmin;
 }
